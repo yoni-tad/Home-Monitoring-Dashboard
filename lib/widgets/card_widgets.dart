@@ -20,8 +20,10 @@ class HomeCard extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 12,
+      padding: const EdgeInsets.only(
+        left: 12,
+        right: 12,
+        bottom: 16,
       ),
       child: Container(
         decoration: BoxDecoration(
@@ -50,13 +52,13 @@ class HomeCard extends StatelessWidget {
                     ),
                     child: Icon(
                       icon,
-                      color: AppColor.appYellow,
+                      color: isActive ? AppColor.appYellow : AppColor.white,
                     ),
                   ),
                   Text(
                     title,
                     style: TextStyle(
-                      color: AppColor.black,
+                      color: isActive ? AppColor.black : AppColor.white,
                       fontWeight: FontWeight.w500,
                       fontSize: height * 0.025,
                     ),
@@ -64,7 +66,7 @@ class HomeCard extends StatelessWidget {
                   Text(
                     device.toString() + " Device",
                     style: TextStyle(
-                      color: AppColor.black,
+                      color: isActive ? AppColor.black : AppColor.white,
                       fontWeight: FontWeight.w400,
                       fontSize: height * 0.02,
                     ),
@@ -73,8 +75,8 @@ class HomeCard extends StatelessWidget {
               ),
               Icon(
                 Icons.arrow_forward_ios,
-                color: AppColor.black,
-                size: height * 0.035,
+                color: isActive ? AppColor.black : AppColor.white,
+                size: height * 0.03,
               ),
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:home_monitoring_dashboard/constants/color.dart';
 import 'package:home_monitoring_dashboard/widgets/card_widgets.dart';
@@ -41,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     children: [
                       // icon
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.bell,
                         color: AppColor.white,
                       ),
@@ -88,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           // icon
-                          Icon(
+                          const Icon(
                             FontAwesomeIcons.calendar,
                             color: AppColor.appYellow,
                             size: 16,
@@ -112,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           // icon
-                          Icon(
+                          const Icon(
                             FontAwesomeIcons.temperatureEmpty,
                             color: AppColor.appYellow,
                             size: 16,
@@ -138,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // icon
-                            Icon(
+                            const Icon(
                               FontAwesomeIcons.cloudShowersHeavy,
                               color: AppColor.appYellow,
                               size: 16,
@@ -219,32 +220,85 @@ class HomeScreen extends StatelessWidget {
             ),
 
             // card list
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 18,
-              ),
-              child: GridView.count(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                children: [
-                  HomeCard(
-                    title: "Bedroom",
-                    device: 3,
-                    icon: FontAwesomeIcons.bed,
-                    isActive: true,
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 18,
                   ),
-                  HomeCard(
-                    title: "Livingroom",
-                    device: 7,
-                    icon: FontAwesomeIcons.personBooth,
-                    isActive: false,
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount: 2,
+                    children: const [
+                      HomeCard(
+                        title: "Bedroom",
+                        device: 3,
+                        icon: FontAwesomeIcons.bed,
+                        isActive: true,
+                      ),
+                      HomeCard(
+                        title: "Livingroom",
+                        device: 2,
+                        icon: FontAwesomeIcons.personBooth,
+                        isActive: false,
+                      ),
+                      HomeCard(
+                        title: "Kitchen",
+                        device: 7,
+                        icon: FontAwesomeIcons.kitchenSet,
+                        isActive: false,
+                      ),
+                      HomeCard(
+                        title: "Dinningroom",
+                        device: 4,
+                        icon: FontAwesomeIcons.utensils,
+                        isActive: false,
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ],
         ),
+        bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: AppColor.cardColor,
+            selectedItemColor: AppColor.appYellow,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: SvgPicture.asset(
+                    'assets/icons/01.svg',
+                    color: AppColor.white,
+                  ),
+                ),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: SvgPicture.asset(
+                    'assets/icons/03.svg',
+                    color: AppColor.white,
+                  ),
+                ),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: SvgPicture.asset(
+                    'assets/icons/02.svg',
+                    color: AppColor.white,
+                  ),
+                ),
+                label: '',
+              ),
+            ]),
       ),
     );
   }
