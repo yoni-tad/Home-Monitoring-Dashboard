@@ -262,43 +262,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: AppColor.cardColor,
-            selectedItemColor: AppColor.appYellow,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            items: [
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: SvgPicture.asset(
-                    'assets/icons/01.svg',
-                    color: AppColor.white,
-                  ),
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: SvgPicture.asset(
-                    'assets/icons/03.svg',
-                    color: AppColor.white,
-                  ),
-                ),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: SvgPicture.asset(
-                    'assets/icons/02.svg',
-                    color: AppColor.white,
-                  ),
-                ),
-                label: '',
-              ),
-            ]),
       ),
     );
   }
