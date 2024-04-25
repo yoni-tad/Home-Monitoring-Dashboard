@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:home_monitoring_dashboard/constants/color.dart';
 import 'package:home_monitoring_dashboard/widgets/device_card_widget.dart';
@@ -28,11 +26,11 @@ class StatusScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     FontAwesomeIcons.chevronLeft,
                     color: AppColor.white,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "Bedroom",
                     textAlign: TextAlign.center,
@@ -42,7 +40,7 @@ class StatusScreen extends StatelessWidget {
                         letterSpacing: -0.5,
                         fontWeight: FontWeight.w400),
                   ),
-                  Spacer(),
+                  const Spacer(),
                 ],
               ),
             ),
@@ -93,11 +91,11 @@ class StatusScreen extends StatelessWidget {
 
             GridView.count(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 3,
               crossAxisSpacing: width * 0.05,
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              children: [
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              children: const [
                 DeviceCard(
                   icon: FontAwesomeIcons.fan,
                   title: 'Air Conditioner',
