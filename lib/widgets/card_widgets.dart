@@ -20,11 +20,7 @@ class HomeCard extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 12,
-        right: 12,
-        bottom: 16,
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Container(
         decoration: BoxDecoration(
           color: isActive ? AppColor.appYellow : AppColor.cardColor,

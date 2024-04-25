@@ -230,6 +230,7 @@ class HomeScreen extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
+                    mainAxisSpacing: height * 0.03,
                     children: const [
                       HomeCard(
                         title: "Bedroom",

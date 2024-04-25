@@ -30,32 +30,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int currentIndex = 0;
+
+  final List pages = [
+    const HomeScreen(),
+    const StatusScreen(),
+    const HomeScreen(),
+  ];
+
+  void onItemTapped(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 0;
-
-    final List pages = [
-      const HomeScreen(),
-      const StatusScreen(),
-      const HomeScreen(),
-    ];
-
-    void onItemTapped(int index) {
-      setState(() {
-        currentIndex = index;
-      });
-    }
-
     return Scaffold(
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (int index){
-          setState(() {
-            currentIndex = index;
-          });
-        },
+        onTap: onItemTapped,
         backgroundColor: AppColor.cardColor,
-        selectedItemColor: AppColor.appYellow,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
@@ -64,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: SvgPicture.asset(
                 'assets/icons/01.svg',
-                color: AppColor.white,
+                color: currentIndex == 0 ? AppColor.appYellow : AppColor.white,
               ),
             ),
             label: '',
@@ -74,7 +69,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: SvgPicture.asset(
                 'assets/icons/03.svg',
-                color: AppColor.white,
+                color: currentIndex == 1 ? AppColor.appYellow : AppColor.white,
               ),
             ),
             label: '',
@@ -84,7 +79,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: SvgPicture.asset(
                 'assets/icons/02.svg',
-                color: AppColor.white,
+                color: currentIndex == 2 ? AppColor.appYellow : AppColor.white,
               ),
             ),
             label: '',
