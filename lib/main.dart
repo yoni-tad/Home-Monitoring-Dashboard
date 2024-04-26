@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:home_monitoring_dashboard/constants/color.dart';
 import 'package:home_monitoring_dashboard/screens/home_screen.dart';
@@ -14,6 +15,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: AppColor.backgroundColor,
+      ),
+    );
+
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Home Monitoring Dashboard',
